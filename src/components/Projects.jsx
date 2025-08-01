@@ -26,9 +26,9 @@ const Projects = () => {
             <div className="w-1/2 z-10 flex justify-center items-center relative">
               <img
                 className="mx-auto lg:hover:scale-110 duration-300 ease-in-out border-none w-[50%]"
-                src="/url.svg"
-                alt=""
-              />
+                src={`${import.meta.env.BASE_URL}url.svg`}
+                alt="URL icon"
+                />
             </div>
             <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-10  pr-5">
               <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
@@ -61,7 +61,7 @@ const Projects = () => {
               <div className="absolute border-1 w-1/2 left-0 "></div> {" "}
               <video
                 className="mx-auto lg:hover:scale-140 scale-130 duration-300 z-10 ease-in-out border-none w-[50%]"
-                src="/pooja_project.mp4"
+                src={`${import.meta.env.BASE_URL}pooja_project.mp4`}
                 autoPlay
                 loop
                 muted
@@ -101,7 +101,7 @@ const Projects = () => {
           <div className="w-1/2 z-10 flex justify-center items-center relative">
             <video
               className="mx-auto lg:hover:scale-140 scale-130 duration-300 z-10 ease-in-out border-none w-[50%]"
-              src="/ecommers_project.mp4"
+              src={`${import.meta.env.BASE_URL}ecommers_project.mp4`}
               autoPlay
               loop
               muted

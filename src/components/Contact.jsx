@@ -65,10 +65,10 @@ const Contact = () => {
           <div className="mt-6 hidden lg:block">
             <p className="font-semibold text-2xl mb-2">SOCIALS</p>
             <div className="flex gap-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className=" p-2 rounded-md border shadow-sm">
+              <a href="https://www.linkedin.com/in/abhishek-paul-6b265421a/" target="_blank" rel="noopener noreferrer" className=" p-2 rounded-md border shadow-sm">
                 <FaLinkedinIn className="text-xl" />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className=" p-2 rounded-md border shadow-sm">
+              <a href="https://github.com/AbhiShekPaulJ" target="_blank" rel="noopener noreferrer" className=" p-2 rounded-md border shadow-sm">
                 <FaGithub className="text-xl" />
               </a>
             </div>
