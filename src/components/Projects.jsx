@@ -109,6 +109,7 @@ const Projects = () => {
             />
           </div>
           <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-10  pr-5">
+  
             <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
               Short URL
             </h4>
