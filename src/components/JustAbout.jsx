@@ -67,7 +67,7 @@ const JustAbout = () => {
       trigger: aboutRef.current,
       start: "top 10%",
       once: true,
-      markers: true,
+      // markers: true,
       onEnter: () => {
         gsap.to(counter, {
           value: 12,
@@ -98,7 +98,7 @@ const JustAbout = () => {
           {/* Scrollable icons */}
           <div className="w-max flex gap-40" ref={scrollRef}>
             {[...Array(100)].map((_, i) => (
-              <IoAirplane key={i} className="text-4xl flex-shrink-0" />
+              <ImArrowRight2 key={i} className="text-4xl flex-shrink-0" />
             ))}
           </div>
 

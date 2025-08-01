@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      {/* {!loaded && <Preloader onComplete={() => setLoaded(true)} />} */}
+      {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
       <Home />
     </>
   );
