@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import Navbar from "./Navbar";
@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import JustAbout from "./JustAbout";
 import Contact from "./Contact";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { IoIosArrowUp } from "react-icons/io";
 
 gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
 
@@ -15,6 +16,25 @@ const Home = () => {
   const scrambleRef2 = useRef(null);
   const letterRef = useRef(null);
   const pageRef = useRef(null);
+  const [showScrollCircle, setShowScrollCircle] = useState(false);
+
+  useEffect(() => {
+    const progressCircle = document.querySelector(".progress-circle");
+
+    const updateProgress = () => {
+      const progressCircle = document.querySelector(".progress-circle"); // move this inside
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollTop / docHeight;
+      const offset = 163.36 * (1 - scrollPercent);
+      if (progressCircle) {
+        progressCircle.style.strokeDashoffset = offset.toString();
+      }
+    };
+
+    window.addEventListener("scroll", updateProgress);
+    return () => window.removeEventListener("scroll", updateProgress);
+  }, []);
 
   useEffect(() => {
     const el = letterRef.current;
@@ -61,6 +81,12 @@ const Home = () => {
         scrub: 4,
       },
     });
+    const handleScroll = () => {
+      // setScrolled(window.scrollY > 50);
+      setShowScrollCircle(window.scrollY > 100); // 👈 show circle after 100px
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -118,6 +144,31 @@ const Home = () => {
           <Contact />
         </div>
         <hr className="w-[90%] mx-auto border-zinc-700" />
+        {showScrollCircle && (
+          <a
+            href="#"
+            className="fixed bottom-4 left-4 z-50 w-[60px] h-[60px] transition-opacity duration-300 opacity-100"
+          >
+            <svg className="rotate-[-90deg]" width="60" height="60">
+              <circle cx="30" cy="30" r="26" stroke="#333" strokeWidth="1" fill="none" />
+              <circle
+                cx="30"
+                cy="30"
+                r="26"
+                stroke="#fffce1"
+                strokeWidth="2"
+                fill="none"
+                strokeDasharray="163.36"
+                strokeDashoffset="163.36"
+                strokeLinecap="round"
+                className="progress-circle"
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <IoIosArrowUp className="text-[#fffce1] text-xl" />
+            </div>
+          </a>
+        )}
       </div>
     </>
   );
