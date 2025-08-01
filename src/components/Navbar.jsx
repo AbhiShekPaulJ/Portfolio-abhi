@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`sticky top-0 text-[#fffce1] z-50 backdrop-blur-xl w-full flex justify-between font-poppins transition-all duration-500 px-6 lg:px-20 items-center  ${
+        className={`sticky top-0 text-[#fffce1] z-45 backdrop-blur-xl w-full flex justify-between font-poppins transition-all duration-500 px-6 lg:px-20 items-center  ${
           scrolled ? "h-16" : "h-24"
         }`}
       >
