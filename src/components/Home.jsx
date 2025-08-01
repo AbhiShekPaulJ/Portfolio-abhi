@@ -1,0 +1,126 @@
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import Navbar from "./Navbar";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import JustAbout from "./JustAbout";
+import Contact from "./Contact";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
+
+const Home = () => {
+  const scrambleRef1 = useRef(null);
+  const scrambleRef2 = useRef(null);
+  const letterRef = useRef(null);
+  const pageRef = useRef(null);
+
+  useEffect(() => {
+    const el = letterRef.current;
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+    tl.to(el, {
+      rotateY: 720,
+      duration: 1.5,
+      // ease: "power2.inOut",
+    });
+
+    gsap.to(scrambleRef1.current, {
+      scrambleText: {
+        text: "Full Stack Developer |",
+        chars: "upperAndLowerCase",
+        speed: 0.4,
+      },
+      duration: 2,
+      repeat: -1,
+      repeatDelay: 3,
+    });
+
+    gsap.to(scrambleRef2.current, {
+      scrambleText: {
+        text: "Software Developer",
+        chars: "upperAndLowerCase",
+        speed: 0.3,
+      },
+      duration: 2,
+      repeat: -1,
+      repeatDelay: 3,
+    });
+    gsap.from("#hello h1", {
+      y: 20,
+      // opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      stagger: 0.5, // ✅ Apply here
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top bottom",
+        end: "top top",
+        scrub: 4,
+      },
+    });
+  }, []);
+
+  return (
+    <>
+      <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
+        <Navbar />
+        <div className=" flex relative justify-center w-[80%] mt-20 mx-auto  items-center">
+          <div className="flex hero justify-between items-center flex-col lg:flex-row gap-5">
+            <div className=" text-center flex flex-col justify-center">
+              <h1 className="md:text-4xl text-3xl  mb-2 ">Hello there!</h1>
+              <h1 className="md:text-7xl text-3xl bg-clip-text  mb-2">
+                I'm Abhishek{" "}
+                <span
+                  className="inline-block"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px",
+                    backfaceVisibility: "hidden",
+                    transformOrigin: "center",
+                  }}
+                  ref={letterRef}
+                >
+                  P
+                </span>
+                aul
+              </h1>
+              {/* <div className="flex">  */}
+              <h1 className="lg:text-4xl lg:block hidden" ref={scrambleRef1}></h1>
+              <h1 className="lg:text-4xl text-3xl w-fit mx-auto" ref={scrambleRef2}></h1>
+              {/* </div> */}
+            </div>
+            <div className="  lg:w-[40%] w-[70%] md:w-[60%] rounded-2xl lg:rotate-6 border-4 hover:rotate-0 duration-500 overflow-hidden">
+              <img
+                className=""
+                src="https://plus.unsplash.com/premium_photo-1739786996022-5ed5b56834e2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXIlMjBwcm9maWxlJTIwZHVtbXl8ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div className="mb-16  ">
+          <Skills />
+        </div>
+        <hr className="w-[90%] mx-auto border-zinc-700" />
+        <div id="about" className="mb-16  ">
+          <JustAbout />
+        </div>
+        {/* <About /> */}
+        <hr className="w-[90%] mx-auto border-zinc-700" />
+        <div id="projects" className="mb-16 panel ">
+          <Projects />
+        </div>
+        <hr className="w-[90%] mx-auto border-zinc-700" />
+        <div id="contact" className="mb-16 panel ">
+          <Contact />
+        </div>
+        <hr className="w-[90%] mx-auto border-zinc-700" />
+      </div>
+    </>
+  );
+};
+
+export default Home;

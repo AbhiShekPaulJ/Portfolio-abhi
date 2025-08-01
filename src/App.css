@@ -1,0 +1,9 @@
+.curved-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: black;
+    border-top-left-radius: 100% 50%;
+    border-top-right-radius: 100% 50%;
+  }
