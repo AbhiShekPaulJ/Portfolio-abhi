@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useRef } from "react";
 import gsap from "gsap";
+import Navbar from "./Navbar";
 
 const About = () => {
   const skills = [
@@ -24,7 +25,8 @@ const About = () => {
   }, []);
   return (
     <>
-      <div className=" w-[100%] py-20   mx-auto">
+      <div className=" w-[100%] bg-zinc-950  text-[#fffce1]  mx-auto">
+    <Navbar/>
         <h1 className="text-5xl text-[#ffb703] text-center font-bold">About me</h1>
         <div className="border mx-10 py-2 px-4 mt-3 text-center text-2xl leading-7 tracking-normal font-thin border-zinc-800 rounded-xl">
           I’m a Computer Science graduate with a passion for building creative and functional web

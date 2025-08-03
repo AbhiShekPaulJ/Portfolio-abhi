@@ -3,6 +3,7 @@ export default {
     content: [
       "./index.html",
       "./src/**/*.{js,ts,jsx,tsx}",
+      "./node_modules/skipper-ui/**/*.{js,jsx}", // 👈 Add this line
     ],
     theme: {
       extend: {
