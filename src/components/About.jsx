@@ -2,7 +2,8 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Navbar from "./Navbar";
 import PreloaderPrev from "./PreloaderPrev";
-import { CardCarousel } from "./ui/card-carousel"; // Adjust path
+import { CardCarousel } from "./ui/card-carousel";
+import Contact from "./Contact";
 
 const About = () => {
   const images = [
@@ -32,32 +33,34 @@ const About = () => {
     gsap.to(chipsRef.current, {
       rotation: 360,
       duration: 3,
-      repeat: -1, // infinite
-      ease: "linear", // smooth constant speed
+      repeat: -1,
+      ease: "linear",
     });
   }, []);
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2800); // match your preloader animation duration
+    }, 2800);
     return () => clearTimeout(timer);
   }, []);
-  // if (isLoading) return <PreloaderPrev onComplete={() => setIsLoading(false)} />;
+
   return (
     <>
       {isLoading && <PreloaderPrev />}
-      <div  className="scrolling-content">
+      <div className="">
         <div className=" w-[100%] bg-zinc-950  text-[#fffce1]  mx-auto pb-20">
           <Navbar />
-          <h1 className="text-8xl text-[#ffb703] text-center font-bold font-stretch-50%">About</h1>
+          <h1 className="text-8xl pt-30 text-[#ffb703] text-center font-bold font-stretch-50%">
+            About
+          </h1>
           <div className="border mx-10 py-2 px-4 mt-3 text-center text-2xl leading-7 tracking-normal font-thin border-zinc-800 rounded-xl">
             I’m a Computer Science graduate with a passion for building creative and functional web
             applications. I enjoy working with modern technologies to turn ideas into clean,
             responsive websites. I’m constantly learning and improving my skills to become a better
             developer every day.
           </div>
-          <div className="mx-10 text-left mt-5 border-zinc-800  flex gap-5">
-            <div className="w-[40%] rounded-xl border-1 border-zinc-800">
+          <div className="flex flex-col lg:flex-row gap-5 mx-4 md:mx-10 mt-5 border-zinc-800">
+            <div className="w-full lg:w-[40%] rounded-xl border-1 border-zinc-800">
               <h2 className="text-3xl p-2 text-[#ffb703]">Training :</h2>
               <p className="  p-2 text-2xl leading-7 tracking-normal text-center font-thin">
                 I enrolled in JSpiders during my graduation to pursue a Java Full Stack Development
@@ -66,14 +69,14 @@ const About = () => {
                 development, building hands-on projects.
               </p>
             </div>
-            <div className="w-[20%] flex items-center justify-center rounded-xl border-1 border-zinc-800">
+            <div className="w-full lg:w-[20%] flex items-center justify-center rounded-xl border-1 border-zinc-800">
               <img
-                className="max-w-full h-auto"
+                className="max-w-full h-auto object-contain"
                 src="https://anuragsinghbam.com/images/coder.svg"
                 alt="Coder Illustration"
               />
             </div>
-            <div className=" w-[40%] px-3">
+            <div className=" w-full lg:w-[40%] px-3">
               <div className=" rounded-xl border-1 h-[100%] pb-4 overflow-hidden border-zinc-800 text-center flex flex-wrap gap-2 justify-center items-center">
                 <h1 className="text-3xl p-2 w-full text-[#ffb703]">Current skills :</h1>
                 {skills.map((ele, i) => {
@@ -98,20 +101,24 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="flex mx-10 gap-5 mt-5">
-            <div className=" w-[60%] mx-auto rounded-xl border-1 border-zinc-800">
+          <div className="flex lg:mx-10 mx-5 p-2 gap-5 mt-5">
+            <div className="w-full lg:w-[60%] mx-auto rounded-xl border-1 border-zinc-800">
               <h2 className="text-3xl p-2 text-[#ffb703]">Education :</h2>
               <div className="flex items-center ">
-                <img className="h-20 " src={`${import.meta.env.BASE_URL}grad.png`} alt="" />
+                <img
+                  className="max-w-full object-contain h-20 "
+                  src={`${import.meta.env.BASE_URL}grad.png`}
+                  alt=""
+                />
                 <div className=" w-full text-center">
                   <h3 className="text-2xl">Malla Reddy College of Engineering</h3>
                   <p className="text font-thin">B-tech in Computer Science and Engineering</p>
                   <p className="text-[16px] text-[#ffb703] font-light">Graduated in 2024</p>
                 </div>
               </div>
-              <div className="flex items-center mt-2">
+              <div className="flex items-center mt-2 ">
                 <img
-                  className="h-20 w-30 scale-80"
+                  className="max-w-full  object-contain h-20 w-30 scale-80"
                   src={`${import.meta.env.BASE_URL}inter.png`}
                   alt=""
                 />
@@ -122,7 +129,11 @@ const About = () => {
                 </div>
               </div>
               <div className="flex items-center mt-2">
-                <img className="h-20 w-37" src={`${import.meta.env.BASE_URL}sch.png`} alt="" />
+                <img
+                  className="max-w-full object-contain h-20 w-37"
+                  src={`${import.meta.env.BASE_URL}sch.png`}
+                  alt=""
+                />
                 <div className=" w-full text-center">
                   <h3 className="text-2xl">St. Anthony's High School</h3>
                   <p className="text-[16px] text-[#ffb703] font-light">Graduated in 2018</p>
@@ -130,13 +141,17 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="pt-20">
+          <div className="pt-20 hidden">
             <CardCarousel
               images={images}
               autoplayDelay={2000}
               showPagination={true}
               showNavigation={true}
             />
+          </div>
+
+          <div className="mt-20">
+            <Contact />
           </div>
         </div>
       </div>

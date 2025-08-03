@@ -91,9 +91,10 @@ const Home = () => {
 
   return (
     <>
+      <main className="overflow-x-hidden relative">
       <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
-        <Navbar />
-        <div className=" flex relative justify-center w-[80%] mt-20 mx-auto  items-center">
+        <Navbar pageRef={pageRef} />
+        <div className=" flex relative justify-center w-[80%] pt-40 mx-auto items-center">
           <div className="flex hero justify-between items-center flex-col lg:flex-row gap-5">
             <div className=" text-center flex flex-col justify-center">
               <h1 className="md:text-4xl text-3xl  mb-2 ">Hello there!</h1>
@@ -118,7 +119,7 @@ const Home = () => {
               <h1 className="lg:text-4xl text-3xl w-fit mx-auto" ref={scrambleRef2}></h1>
               {/* </div> */}
             </div>
-            <div className="  lg:w-[40%] w-[70%] md:w-[60%] rounded-2xl lg:rotate-6 border-4 hover:rotate-0 duration-500 overflow-hidden">
+            <div className="  lg:w-[40%] w-[70%] md:w-[60%] rounded-2xl lg:rotate-6 rotate-0 border-4 hover:rotate-0 duration-500 overflow-hidden">
               <img
                 className=""
                 src="https://plus.unsplash.com/premium_photo-1739786996022-5ed5b56834e2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXIlMjBwcm9maWxlJTIwZHVtbXl8ZW58MHx8MHx8fDA%3D"
@@ -170,6 +171,7 @@ const Home = () => {
           </a>
         )}
       </div>
+      </main>
     </>
   );
 };

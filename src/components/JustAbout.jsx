@@ -105,10 +105,10 @@ const JustAbout = () => {
           {/* Right gradient overlay */}
           <div className="absolute right-0 top-0 h-full w-[50%] z-10 pointer-events-none bg-gradient-to-l from-zinc-950 via-zinc-950/50 to-transparent"></div>
         </div>
-        <div className=" flex flex-col lg:flex-row w-[90%] mx-auto font-bold font-stretch-80% py-8">
+        <div className=" flex flex-col lg:flex-row w-[90%] mx-auto font-bold font-stretch-50% py-8">
           <div className=" lg:text-3xl text-3xl lg:w-[20%] text-center ">About Me</div>
           <div className="lg:w-[80%] font-normal text-center mt-5 md:mt-0 tracking-tight font-stretch-80% px-10">
-            <div className=" lg:text-3xl  ">
+            <div className=" lg:text-3xl text-[18px]  ">
               I’m Abhishek Paul, a tech enthusiast and Computer Science Engineer passionate about
               implement interactive, scalable applications as a Software Development Engineer.. With
               a strong foundation in Frontend and backend development, I blend creativity and logic

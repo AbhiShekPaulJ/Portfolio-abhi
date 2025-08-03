@@ -93,7 +93,7 @@ const Preloader = ({ onComplete }) => {
   return (
     <div
       ref={preloaderRef}
-      className="fixed inset-0 z-90 flex items-center backdrop-blur-2xl justify-center bg-background overflow-hidden"
+      className="fixed inset-0 z-[999] flex items-center backdrop-blur-2xl justify-center bg-background overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       {/* Background overlay */}
       <div
@@ -104,7 +104,7 @@ const Preloader = ({ onComplete }) => {
         <div className="overflow-hidden mb-6">
           <h1
             ref={nameRef}
-            className="text-2xl md:text-4xl lg:text-7xl  tracking-tight leading-none text-primary transform"
+            className="text-4xl md:text-4xl lg:text-7xl  tracking-tight leading-none text-primary transform"
             style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
           >
             AbhishekPaul
