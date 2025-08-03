@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Preloader from "./components/Preloader";
+import PreloaderPrev from "./components/PreloaderPrev";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <Router basename="/Portfolio-abhi">
-      {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
+    <Router basename="/Portfolio-abhi/">
+      {!loaded && <PreloaderPrev onComplete={() => setLoaded(true)} />}
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>} />

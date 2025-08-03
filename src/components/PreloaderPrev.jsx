@@ -1,59 +1,133 @@
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { gsap } from "gsap";
 
-const Preloader = ({ onComplete }) => {
-  const containerRef = useRef();
-  const svgPathRef = useRef();
+const PreloaderPrev = ({ onComplete }) => {
+  const preloaderRef = useRef(null);
+  const nameRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const countRef = useRef(null);
+  const overlayRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ onComplete });
-  
-    // Initial setup
-    gsap.set(containerRef.current, {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+    const tl = gsap.timeline({
+      onComplete: () => {
+        // Animate out the preloader
+        gsap.to(preloaderRef.current, {
+          y: "-100%",
+          duration: 1,
+          ease: "power2.inOut",
+          onComplete: onComplete,
+        });
+      },
     });
-  
-    gsap.set(".preloader-heading span", { y: 0, opacity: 1 });
-  
-    tl.to(".preloader-heading span", {
-      delay: 0.5,
-      y: -100,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.05,
-      ease: "power2.out",
-    })
-      .to(containerRef.current, {
+
+    // Counter animation
+    let counter = { value: 0 };
+    tl.to(
+      counter,
+      {
+        value: 100,
+        duration: 2,
+        ease: "power2.out",
+        onUpdate: () => {
+          if (countRef.current) {
+            countRef.current.textContent = Math.floor(counter.value);
+          }
+        },
+      },
+      0
+    );
+
+    // Text animations
+    tl.fromTo(
+      nameRef.current,
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
         duration: 1.2,
-        clipPath: "polygon(0 0, 100% 0, 100% 85%, 75% 95%, 50% 90%, 25% 95%, 0 85%)",
-        // clipPath: "rhombus(M 0 0 L 0 53% Q 52% 100%, 100% 54% L 100% 0 Z)",
-        ease: "linear"
-      })
-      .to(containerRef.current, {
-        y: "-100%",
+        ease: "power3.out",
+      },
+      0.3
+    );
+
+    tl.fromTo(
+      subtitleRef.current,
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
         duration: 1,
-        ease: "linear"
-      });
-  
+        ease: "power3.out",
+      },
+      0.8
+    );
+
+    // Scale animation for the entire container
+    tl.fromTo(
+      nameRef.current,
+      {
+        scale: 1,
+      },
+      {
+        scale: 1.05,
+        duration: 0.3,
+        ease: "power2.out",
+        yoyo: true,
+        repeat: 1,
+      },
+      2
+    );
+
     return () => {
       tl.kill();
     };
   }, [onComplete]);
 
   return (
-    <>
+    <div
+  ref={preloaderRef}
+  className="fixed inset-0 z-[100] flex items-center justify-center backdrop-blur-2xl  text-white"
+>
+      {/* Background overlay */}
       <div
-        ref={containerRef}
-        className="preloader fixed inset-0 bg-zinc-950 text-white z-50 flex items-center justify-center"
-      >
-        <div className="preloader-heading text-5xl font-bold flex gap-2">
-          {"WELCOME".split("").map((char, i) => (
-            <span key={i}>{char}</span>
-          ))}
+        ref={overlayRef}
+        className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/10"
+      />
+      <div className="relative z-10 text-center text-[#fffce1] max-w-4xl mx-auto px-6">
+        <div className="overflow-hidden mb-6">
+          <h1
+            ref={nameRef}
+            className="text-2xl md:text-4xl lg:text-7xl  tracking-tight leading-none text-primary transform"
+            style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+          >
+            Loading
+          </h1>
+        </div>
+        <div className="overflow-hidden mb-8">
+          <p
+            ref={subtitleRef}
+            className="text-xl md:text-2xl  text-muted-foreground font-light tracking-wide transform"
+          >
+            Almost there...
+          </p>
+        </div>
+
+        <div className="text-6xl md:text-7xl font-light text-primary/60 tracking-wider">
+          <span ref={countRef}>0</span>
+          <span className="text-3xl md:text-4xl ml-1">%</span>
         </div>
       </div>
-    </>
+
+      
+    </div>
   );
 };
 
-export default Preloader;
+export default PreloaderPrev;

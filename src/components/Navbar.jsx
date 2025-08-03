@@ -3,7 +3,7 @@ import { FaCode } from "react-icons/fa6";
 import gsap from "gsap";
 import { IoMenu } from "react-icons/io5";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const name = "Portfolio";
@@ -11,7 +11,7 @@ const Navbar = () => {
   const [charArray, setCharArray] = useState(name.split(""));
   const [scrolled, setScrolled] = useState(false);
   const openMenuRef = useRef(null);
-  const closeMenuRef = useRef(null);
+  const location = useLocation();
   const openMenu = () => {
     if (openMenuRef.current) {
       openMenuRef.current.classList.remove("translate-x-full");
@@ -67,7 +67,7 @@ const Navbar = () => {
           className="text-3xl flex gap-1 hover:text-[#ffb703] border-[#ffb703] font-extrabold px-2 py-1 font-sans"
         >
           <h2 className="font-poppins font-stretch-40% text-3xl">
-            <Link to="/"><a href="#">Abhi</a></Link>
+          <Link to="/">{location.pathname === "/about" ? "Home" : "PORTFOLIO"}</Link>
           </h2>
         </div>
         <div className=" lg:w-[30%] md:w-[60%] hidden md:block ">

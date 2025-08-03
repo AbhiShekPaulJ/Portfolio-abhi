@@ -27,7 +27,7 @@ const Preloader = ({ onComplete }) => {
       counter,
       {
         value: 100,
-        duration: 2.5,
+        duration: 2,
         ease: "power2.out",
         onUpdate: () => {
           if (countRef.current) {
@@ -93,7 +93,7 @@ const Preloader = ({ onComplete }) => {
   return (
     <div
       ref={preloaderRef}
-      className="fixed inset-0 z-50 flex items-center backdrop-blur-2xl justify-center bg-background overflow-hidden"
+      className="fixed inset-0 z-90 flex items-center backdrop-blur-2xl justify-center bg-background overflow-hidden"
     >
       {/* Background overlay */}
       <div

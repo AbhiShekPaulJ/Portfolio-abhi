@@ -90,7 +90,7 @@ const JustAbout = () => {
   return (
     <>
       <div ref={aboutRef} className="py-10  flex flex-col lg:gap-20">
-      <h1 className="text-8xl text-[#fffce1] md:text-left text-center font-bold font-stretch-60% w-[80%] mx-auto mb-10">ABOUT</h1>
+      <h1 className="text-8xl text-[#fffce1] md:text-left text-center font-bold font-stretch-60% w-[80%] mx-auto mb-10">INTRO</h1>
         <div className="w-full overflow-hidden bg-zinc-950 flex items-center justify-center relative ">
           {/* Left gradient overlay */}
           <div className="absolute top-0 h-full w-[50%] z-10 pointer-events-none bg-gradient-to-r left-0 from-zinc-950 via-zinc-950/50 to-transparent  "></div>
