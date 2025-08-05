@@ -115,7 +115,7 @@ const Preloader = ({ onComplete }) => {
             ref={subtitleRef}
             className="text-xl md:text-2xl  text-muted-foreground font-light tracking-wide transform"
           >
-            Computer Science Engineer • FullStack Developer
+            Software Developer • FullStack Developer
           </p>
         </div>
 
