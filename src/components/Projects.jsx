@@ -30,7 +30,7 @@ const Projects = () => {
                 alt="URL icon"
                 />
             </div>
-            <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-10  pr-5">
+            <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-2">
               <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
                 Short URL
               </h4>
@@ -108,10 +108,10 @@ const Projects = () => {
               playsInline
             />
           </div>
-          <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-10  pr-5">
+          <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-5">
   
             <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
-              Short URL
+              E-Commers Website
             </h4>
             <p className="font-light font-stretch-condensed lg:text-[18px] md:text-[16px] leading-6 mt-2">
               A dynamic sneaker e-commerce platform built with real-time search, interactive cart

@@ -58,10 +58,10 @@ const Skills = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center h-full lg:w-[40%] mx-auto mt-10 lg:mt-0">
+        <div className="flex justify-center  items-center h-full lg:w-[40%] mx-auto mt-10 lg:mt-0">
           <div className="relative p-1 rounded-lg overflow-hidden">
-          <div className="absolute inset-0 -left-[200px] -top-[220px] w-[500px] h-[500px] animate-spin bg-[conic-gradient(from_90deg,_#4285F4_0%,_#EA4335_25%,_#FBBC05_50%,_#34A853_75%,_#4285F4_100%)]"></div>            <a href="/Abhishek_Resume.pdf" download>
-            <button className="relative z-10 bg-zinc-900 h-10 w-30 rounded-lg flex items-center justify-center border-2 border-transparent">
+          <div className="absolute cursor-pointer inset-0 -left-[200px] -top-[220px] w-[500px] h-[500px] animate-spin bg-[conic-gradient(from_90deg,_#4285F4_0%,_#EA4335_25%,_#FBBC05_50%,_#34A853_75%,_#4285F4_100%)]"></div>       <a href={`${import.meta.env.BASE_URL}/Abhishek_Resume.pdf`} download>
+            <button className="relative cursor-pointer z-10 bg-zinc-900 h-10 w-30 rounded-lg flex items-center justify-center border-2 border-transparent">
               Resume
             </button>
             </a>
