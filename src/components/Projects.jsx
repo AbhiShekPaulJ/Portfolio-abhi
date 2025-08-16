@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <>
       <div className=" w-[90%] mx-auto py-20">
-        <h1 className="lg:text-8xl text-8xl text-[#fffce1] text-left font-bold lg:w-[90%] mx-auto font-stretch-60% mb-10">
+        <h1 className="lg:text-8xl text-7xl text-[#fffce1]  text-left font-bold lg:w-[90%] w-fit mx-auto font-stretch-80% mb-10">
           {" "}
           PROJECTS
         </h1>

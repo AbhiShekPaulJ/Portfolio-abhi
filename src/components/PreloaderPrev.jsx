@@ -93,33 +93,33 @@ const PreloaderPrev = ({ onComplete }) => {
   return (
     <div
   ref={preloaderPrevRef}
-  className="fixed inset-0 z-[1000] flex items-center justify-center backdrop-blur-xl  text-white"
+  className="fixed inset-0 z-[1000] flex items-center   max-w-screen justify-center backdrop-blur-xl text-white"
 >
       {/* Background overlay */}
       <div
         ref={overlayPrevRef}
         className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/10"
       />
-      <div className="relative z-10 text-center text-[#fffce1] max-w-4xl mx-auto px-6">
-        <div className="overflow-hidden mb-6">
+      <div className="relative z-10 text-center text-[#fffce1]    max-w-4xl mx-auto px-6">
+        <div className="overflow-hidden mb-6  ">
           <h1
             ref={loadingRef}
-            className="text-3xl md:text-4xl p-2 lg:text-7xl  tracking-tight leading-none text-primary transform"
+            className="text-3xl md:text-4xl p-2 lg:text-7xl  tracking-tight leading-none transform"
             style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
           >
             Loading
           </h1>
         </div>
-        <div className="overflow-hidden mb-8">
+        <div className="overflow-hidden mb-8  ">
           <p
             ref={almostRef}
-            className="text-xl md:text-2xl  text-muted-foreground font-light tracking-wide transform"
+            className="text-xl md:text-2xl ml-2 font-light tracking-wide transform"
           >
             Almost there..
           </p>
         </div>
 
-        <div className="text-6xl md:text-7xl font-light text-primary/60 tracking-widest">
+        <div className="text-6xl md:text-7xl ml-3 font-light  ">
           <span ref={justcountRef}>0</span>
           <span className="text-3xl md:text-4xl">%</span>
         </div>

@@ -94,11 +94,11 @@ const Home = () => {
       <main className="overflow-x-hidden relative selection:bg-[#fffce1] selection:text-zinc-950">
       <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
         <Navbar pageRef={pageRef} />
-        <div className=" flex relative justify-center w-[80%] pt-40 mx-auto items-center">
+        <div className=" flex relative justify-center w-[80%] md:pt-40 pt-30 mx-auto items-center">
           <div className="flex hero justify-between items-center flex-col lg:flex-row gap-5">
             <div className=" text-center flex flex-col justify-center">
               <h1 className="md:text-4xl text-3xl  mb-2 ">Hello there!</h1>
-              <h1 className="md:text-7xl text-3xl bg-clip-text  mb-2">
+              <h1 className="md:text-7xl text-4xl font-bold bg-clip-text  mb-2">
                 I'm Abhishek{" "}
                 <span
                   className="inline-block"

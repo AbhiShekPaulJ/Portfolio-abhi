@@ -16,15 +16,19 @@ const About = () => {
     { src: `${import.meta.env.BASE_URL}react.png`, alt: "Image 7" },
   ];
   const skills = [
-    "Node JS",
+    "Node.js",
     "SQL",
     "Java",
     "JavaScript",
     "Tailwind",
     "React.js",
-    "Node.js",
+    "TypeScript",
     "MongoDB",
     "Express.js",
+    "Postman",
+    "Git & Github",
+    "JWT",
+    "RESTful APIs"
   ];
 
   const chipsRef = useRef([]);
@@ -47,8 +51,8 @@ const About = () => {
   return (
     <>
       {isLoading && <PreloaderPrev />}
-      <div className="">
-        <div className=" w-[100%] bg-zinc-950  text-[#fffce1]  mx-auto pb-20">
+      <div className="w-screen overflow-hidden">
+        <div className="max-w-screen bg-zinc-950  text-[#fffce1]  mx-auto pb-20">
           <Navbar />
           <h1 className="text-8xl pt-30 text-[#ffb703] text-center font-bold font-stretch-50%">
             About

@@ -1,49 +1,73 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FiMail, FiUser, FiPhone } from "react-icons/fi";
-import { FaLinkedinIn, FaGithub,} from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
-
-
-
 
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const formRef = useRef();
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const progressRef = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true); // show loader
+    setStatus("");
+    setProgress(0);
+    progressRef.current = 0;
+
+    // Start progress simulation
+    let intervalId;
+    function startProgress() {
+      intervalId = setInterval(() => {
+        progressRef.current = Math.min(progressRef.current + Math.random() * 8 + 2, 90); // up to 90%
+        setProgress(progressRef.current);
+        if (progressRef.current >= 90) {
+          clearInterval(intervalId);
+        }
+      }, 120);
+    }
+    startProgress();
 
     const now = new Date();
     const timestamp = now.toLocaleString();
-
-    // const formData = new FormData(formRef.current);
-    // formData.append("time", timestamp);
     formRef.current.time.value = timestamp;
 
     emailjs
       .sendForm(
-        "service_bq9aptk",       // replace with your service ID
-        "template_o8y1mob",    // replace with your actual template ID
+        "service_bq9aptk", // service ID
+        "template_o8y1mob", // template ID
         formRef.current,
-        "jOqtuu0pv0aAYFqHE"        // replace with your public key
+        "jOqtuu0pv0aAYFqHE" // public key
       )
       .then(
         () => {
           setStatus("Message sent successfully");
+          setLoading(false); // hide loader
+          setProgress(100);
+          progressRef.current = 100;
           e.target.reset();
+          clearInterval(intervalId);
         },
         () => {
-          setStatus("Failed to send message");
+          setStatus("Failed to send message ");
+          setLoading(false); // hide loader
+          setProgress(0);
+          progressRef.current = 0;
+          clearInterval(intervalId);
         }
       );
   };
 
   return (
     <div className=" min-h-screen lg:p-8  font-stretch-60% ">
-      <h1 className="text-8xl text-[#fffce1] text-left font-bold w-[90%] mx-auto font-stretch-60% mb-10">CONTACT ME</h1>
+      <h1 className="lg:text-8xl text-7xl max-w-screen text-[#fffce1] text-left font-bold w-[90%] mx-auto font-stretch-60% mb-10">
+        CONTACT ME
+      </h1>
       <div className="flex flex-col w-[90%] mx-auto lg:flex-row gap-6 ">
         {/* Left Info Panel */}
         <div className=" rounded-xl shadow-md p-6 lg:w-1/3 flex lg:flex-col gap-2">
@@ -53,7 +77,7 @@ const Contact = () => {
             <p className="text-gray-600">Hyderabad, Telangana</p>
           </div>
           <div className="mb-4">
-          <FiPhone className="lg:text-3xl text-sm mb-2"></FiPhone>
+            <FiPhone className="lg:text-3xl text-sm mb-2"></FiPhone>
             <p className="font-semibold lg:text-2xl text-sm">CONTACT NUMBER:</p>
             <p className="text-gray-600">+91 8008806079</p>
           </div>
@@ -65,10 +89,20 @@ const Contact = () => {
           <div className="mt-6 hidden lg:block">
             <p className="font-semibold text-2xl mb-2">SOCIALS</p>
             <div className="flex gap-3">
-              <a href="https://www.linkedin.com/in/abhishek-paul-6b265421a/" target="_blank" rel="noopener noreferrer" className=" p-2 rounded-md border shadow-sm">
+              <a
+                href="https://www.linkedin.com/in/abhishek-paul-6b265421a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" p-2 rounded-md border shadow-sm"
+              >
                 <FaLinkedinIn className="text-xl" />
               </a>
-              <a href="https://github.com/AbhiShekPaulJ" target="_blank" rel="noopener noreferrer" className=" p-2 rounded-md border shadow-sm">
+              <a
+                href="https://github.com/AbhiShekPaulJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" p-2 rounded-md border shadow-sm"
+              >
                 <FaGithub className="text-xl" />
               </a>
             </div>
@@ -135,9 +169,25 @@ const Contact = () => {
               className="bg-[#fffce1] text-zinc-950 px-5 py-3 rounded-md font-semibold duration-150 hover:scale-105"
             >
               Send Me Message
+              {loading && (
+                <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
+                  <div
+                    className="bg-zinc-950 h-1 rounded-full transition-all duration-300"
+                    style={{ width: `${progress}%` }}
+                  ></div>
+                </div>
+              )}
             </button>
 
-            {status && <p className="mt-2 text-green-400">{status}</p>}
+            {status && (
+              <p
+                className={`mt-2 ${
+                  status.includes("successfully") ? "text-green-400" : "text-red-400"
+                }`}
+              >
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>

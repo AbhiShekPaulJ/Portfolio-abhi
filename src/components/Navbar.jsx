@@ -72,7 +72,7 @@ const Navbar = () => {
           
         </div>
         <div className=" lg:w-[30%] md:w-[60%] hidden lg:block ">
-          <ul className="flex lg:gap-20 md:gap-10 items-center text-[18px justify-between">
+          <ul className="flex lg:gap-20 md:gap-10 items-center font-light font-stretch-80% text-[18px justify-between ">
             {location.pathname !== "/about" && (
               <>
               <li className="relative px-0 hover:text-[#ffb703] after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#ffb703] after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">
