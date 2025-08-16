@@ -91,7 +91,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="overflow-x-hidden relative">
+      <main className="overflow-x-hidden relative selection:bg-[#fffce1] selection:text-zinc-950">
       <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
         <Navbar pageRef={pageRef} />
         <div className=" flex relative justify-center w-[80%] pt-40 mx-auto items-center">
@@ -141,7 +141,7 @@ const Home = () => {
           <Projects />
         </div>
         <hr className="w-[90%] mx-auto border-zinc-700" />
-        <div id="contact" className="mb-16 panel ">
+        <div id="contact" className="py-20 panel ">
           <Contact />
         </div>
         <hr className="w-[90%] mx-auto border-zinc-700" />

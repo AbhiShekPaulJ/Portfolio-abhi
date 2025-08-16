@@ -1,5 +1,7 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { TextRevealCard } from "./ui/text-reveal-card.jsx";
+
 
 const Projects = () => {
   return (
@@ -130,6 +132,13 @@ const Projects = () => {
             {/* https://github.com/AbhiShekPaulJ/Sneaker-Peak */}
           </div>
         </div>
+        {/* <div className=" border-1 w-full mt-5"> */}
+        <TextRevealCard
+        
+        text="You have a requirement?"
+        revealText="I deliver with skills"
+      />
+        {/* </div> */}
       </div>
     </>
   );
