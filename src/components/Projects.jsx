@@ -2,12 +2,11 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { TextRevealCard } from "./ui/text-reveal-card.jsx";
 
-
 const Projects = () => {
   return (
     <>
       <div className=" w-[90%] mx-auto py-20">
-        <h1 className="lg:text-8xl text-7xl text-[#fffce1]  text-left font-bold lg:w-[90%] w-fit mx-auto font-stretch-80% mb-10">
+        <h1 className="lg:text-8xl text-7xl  text-[#fffce1]  text-left font-bold  lg:w-[90%] w-fit mx-auto font-stretch-60% mb-10">
           {" "}
           PROJECTS
         </h1>
@@ -30,7 +29,7 @@ const Projects = () => {
                 className="mx-auto lg:hover:scale-110 duration-300 ease-in-out border-none w-[50%]"
                 src={`${import.meta.env.BASE_URL}url.svg`}
                 alt="URL icon"
-                />
+              />
             </div>
             <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-2">
               <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
@@ -43,10 +42,10 @@ const Projects = () => {
               </p>
               <div>
                 <a href="https://github.com/AbhiShekPaulJ/url-shortener-backend">
-                <button className="bg-[#fffce1] cursor-pointer text-zinc-950 mt-3 lg:px-4 md:px-2 font-stretch-condensed lg:text-2xl md:text-[18px] flex justify-center items-center gap-2 rounded group transition-transform duration-100 hover:scale-105 ">
-                  GitHub{" "}
-                  <FaArrowRight className="text-[18px] group-hover:rotate-45 transition-transform duration-100"></FaArrowRight>{" "}
-                </button>
+                  <button className="bg-[#fffce1] cursor-pointer text-zinc-950 mt-3 lg:px-4 md:px-2 font-stretch-condensed lg:text-2xl md:text-[18px] flex justify-center items-center gap-2 rounded group transition-transform duration-100 hover:scale-105 ">
+                    GitHub{" "}
+                    <FaArrowRight className="text-[18px] group-hover:rotate-45 transition-transform duration-100"></FaArrowRight>{" "}
+                  </button>
                 </a>
                 {/* https://github.com/AbhiShekPaulJ/url-shortener-backend */}
               </div>
@@ -111,7 +110,6 @@ const Projects = () => {
             />
           </div>
           <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-5">
-  
             <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
               E-Commers Website
             </h4>
@@ -126,18 +124,13 @@ const Projects = () => {
                   GitHub{" "}
                   <FaArrowRight className="text-[18px] group-hover:rotate-45 transition-transform duration-100"></FaArrowRight>{" "}
                 </button>
-                
               </div>
             </a>
             {/* https://github.com/AbhiShekPaulJ/Sneaker-Peak */}
           </div>
         </div>
         {/* <div className=" border-1 w-full mt-5"> */}
-        <TextRevealCard
-        
-        text="You have a requirement?"
-        revealText="I deliver with skills"
-      />
+        <TextRevealCard text="Aspiring Software Engineer" revealText="Passionate Full-Stack Developer" />
         {/* </div> */}
       </div>
     </>

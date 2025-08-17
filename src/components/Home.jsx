@@ -8,8 +8,8 @@ import JustAbout from "./JustAbout";
 import Contact from "./Contact";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowUp } from "react-icons/io";
-
-gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger, ScrollSmoother);
 
 const Home = () => {
   const scrambleRef1 = useRef(null);
@@ -34,6 +34,36 @@ const Home = () => {
 
     window.addEventListener("scroll", updateProgress);
     return () => window.removeEventListener("scroll", updateProgress);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && pageRef.current) {
+      const smoother = ScrollSmoother.create({
+        wrapper: pageRef.current,
+        content: pageRef.current.querySelector(".smooth"),
+        smooth: 1.2, 
+        effects: true,
+      });
+
+      const links = document.querySelectorAll("a[href^='#']");
+      const handleClick = (e, anchor) => {
+        e.preventDefault();
+        let target = document.querySelector(anchor.getAttribute("href"));
+        if (target) {
+          smoother.scrollTo(target, { duration: 1, offset: 0 });
+        }
+      };
+      links.forEach(anchor => {
+        anchor.addEventListener("click", (e) => handleClick(e, anchor));
+      });
+
+      return () => {
+        smoother.kill();
+        links.forEach(anchor => {
+          anchor.replaceWith(anchor.cloneNode(true)); // remove listeners
+        });
+      };
+    }
   }, []);
 
   useEffect(() => {
@@ -94,6 +124,7 @@ const Home = () => {
       <main className="overflow-x-hidden relative selection:bg-[#fffce1] selection:text-zinc-950">
       <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
         <Navbar pageRef={pageRef} />
+        <div className="smooth">
         <div className=" flex relative justify-center w-[80%] md:pt-40 pt-30 mx-auto items-center">
           <div className="flex hero justify-between items-center flex-col lg:flex-row gap-5">
             <div className=" text-center flex flex-col justify-center">
@@ -145,6 +176,8 @@ const Home = () => {
           <Contact />
         </div>
         <hr className="w-[90%] mx-auto border-zinc-700" />
+        
+        </div>
         {showScrollCircle && (
           <a
             href="#"

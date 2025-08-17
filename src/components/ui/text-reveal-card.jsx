@@ -66,7 +66,7 @@ export const TextRevealCard = ({
         className
       )}>
       {children}
-      <div className="border rounded-2xl h-full relative flex items-center justify-center w-[40rem] overflow-hidden">
+      <div className="border rounded-2xl relative flex items-center justify-center w-[50vw] overflow-hidden">
         <motion.div
           style={{
             width: "100%",
@@ -82,12 +82,12 @@ export const TextRevealCard = ({
                 }
           }
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="absolute bg-[#fffce1] z-20  will-change-transform">
-          <p
-            className="text-base sm:text-[3rem] py-10 font-bold text-center text-zinc-950">
+          className="absolute flex justify-center items-center  bg-[#fffce1] h-full z-20  will-change-transform">
+          <div
+            className="text-base leading-15 sm:text-[3rem] font-bold text-center text-zinc-950">
             {revealText}
           <MemoizedStarsb />
-          </p>
+          </div>
           <MemoizedStarsb />
         </motion.div>
         <motion.div
@@ -102,12 +102,11 @@ export const TextRevealCard = ({
         <div
           className=" font-stretch-90% overflow-hidden ">
           <p
-            className=" text-5xl  py-10 font-bold bg-clip-text text-transparent bg-[#fffce1]">
+            className=" text-5xl text-center  py-10 font-bold bg-clip-text text-transparent bg-[#fffce1]">
             {text}
           </p>
           <MemoizedStars />
         </div>
-        <MemoizedStars />
       </div>
     </div>
   );
