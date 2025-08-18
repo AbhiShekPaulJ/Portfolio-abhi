@@ -16,7 +16,7 @@ const Projects = () => {
         <div className="flex flex-col">
           {/* --------------> Project-1 */}
 
-          <div className="flex  lg:mx-10 relative mt-10 md:h-80">
+          <div className="flex  lg:mx-10 relative mt-10 md:h-80 pb-5">
             <a href="https://url-shortener-frontend-csnq.onrender.com/" target="_blank">
               <div className="border w-5 h-5 hover:scale-120 transition-transform duration-150 ease-in-out bg-[#ffb703] z-10 absolute rounded-full inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
             </a>
@@ -54,7 +54,7 @@ const Projects = () => {
 
           {/* ---------------> Project-2 */}
 
-          <div className="flex flex-row-reverse lg:mx-10 relative md:h-80">
+          <div className="flex flex-row-reverse lg:mx-10 relative md:h-80 ">
             <a href="https://url-shortener-frontend-csnq.onrender.com/" target="_blank">
               <div className="border w-5 h-5 hover:scale-120 transition-transform duration-150 ease-in-out bg-[#ffb703] z-10 absolute rounded-full inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
             </a>
@@ -69,7 +69,7 @@ const Projects = () => {
                 playsInline
               />
             </div>
-            <div className="w-1/2 flex border-r-1 px-6 lg:pl-20 flex-col justify-center ">
+            <div className="w-1/2 flex border-r-1 pr-6 lg:pl-20 flex-col justify-center ">
               <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
                 Pooja Booking
               </h4>
@@ -91,12 +91,12 @@ const Projects = () => {
 
         {/*-------------> project-3 */}
 
-        <div className="flex  lg:mx-10 relative lg:mt-0 md:h-80">
+        <div className="flex  lg:mx-10 relative lg:mt-0 md:h-80 ">
           <a href="https://url-shortener-frontend-csnq.onrender.com/" target="_blank">
             <div className="border w-5 h-5 hover:scale-120 transition-transform duration-150 ease-in-out bg-[#ffb703] z-10 absolute rounded-full inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
           </a>
 
-          <div className="border-r-1 w-1/2 h-full absolute flex justify-end">
+          <div className="border-r-1 w-1/2 h-full absolute flex justify-end ">
             <div className="border-1 absolute w-1/2 right-0 top-1/2"></div>
           </div>
           <div className="w-1/2 z-10 flex justify-center items-center relative">
@@ -109,7 +109,7 @@ const Projects = () => {
               playsInline
             />
           </div>
-          <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-5">
+          <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-5 pt-5">
             <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
               E-Commers Website
             </h4>

@@ -62,11 +62,11 @@ export const TextRevealCard = ({
       onTouchMove={touchMoveHandler}
       ref={cardRef}
       className={cn(
-        "bg-zinc-950 font-stretch-90% cursor-col-resize hidden md:block border-white/[0.08] mt-40 w-fit mx-auto rounded-lg p-8  relative overflow-hidden",
+        "bg-zinc-950 font-stretch-90% cursor-col-resize border-white/[0.08] mt-40 w-fit mx-auto rounded-lg p-8  relative overflow-hidden",
         className
       )}>
       {children}
-      <div className="border rounded-2xl relative flex items-center justify-center w-[50vw] overflow-hidden">
+      <div className="border rounded-2xl relative flex items-center justify-center md:w-[50vw] overflow-hidden">
         <motion.div
           style={{
             width: "100%",
@@ -82,9 +82,9 @@ export const TextRevealCard = ({
                 }
           }
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="absolute flex justify-center items-center  bg-[#fffce1] h-full z-20  will-change-transform">
+          className="absolute  flex justify-center px-2 items-center  bg-[#fffce1] h-full z-20  will-change-transform">
           <div
-            className="text-base leading-15 sm:text-[3rem] font-bold text-center text-zinc-950">
+            className=" md:leading-15 md:text-5xl text-3xl font-bold text-center text-zinc-950">
             {revealText}
           <MemoizedStarsb />
           </div>
@@ -102,7 +102,7 @@ export const TextRevealCard = ({
         <div
           className=" font-stretch-90% overflow-hidden ">
           <p
-            className=" text-5xl text-center  py-10 font-bold bg-clip-text text-transparent bg-[#fffce1]">
+            className=" md:text-5xl text-3xl text-center  py-10 font-bold bg-clip-text text-transparent bg-[#fffce1]">
             {text}
           </p>
           <MemoizedStars />

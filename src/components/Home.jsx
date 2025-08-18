@@ -19,8 +19,6 @@ const Home = () => {
   const [showScrollCircle, setShowScrollCircle] = useState(false);
 
   useEffect(() => {
-    const progressCircle = document.querySelector(".progress-circle");
-
     const updateProgress = () => {
       const progressCircle = document.querySelector(".progress-circle"); // move this inside
       const scrollTop = window.scrollY;
@@ -163,7 +161,7 @@ const Home = () => {
           <Skills />
         </div>
         <hr className="w-[90%] mx-auto border-zinc-700" />
-        <div id="about" className="mb-16  ">
+        <div id="about" className="mb-0">
           <JustAbout />
         </div>
         {/* <About /> */}

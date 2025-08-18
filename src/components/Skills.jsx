@@ -38,7 +38,7 @@ const Skills = () => {
 
   return (
     <>
-      <div className="flex h-50 mt-5 w-[70%] mx-auto flex-col  md:flex-row">
+      <div className="flex h-50 mt-15 w-[70%] mx-auto flex-col md:flex-row justify-center items-center ">
         <div className="lg:w-[60%] h-full ">
           <div
             className="overflow-hidden relative  rounded-2xl h-[150px] md:h-full w-[150px] md:w-[220px] mx-auto  z-10"

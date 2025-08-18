@@ -29,8 +29,8 @@ const Navbar = () => {
   useEffect(() => {
     gsap.to(projectRef.current, {
       x: 10,
-      duration: 1,
-      ease: "elastic.out(1, 0.3)",
+      duration: 1.3,
+      ease: "elastic.in(1, 0.3)",
       repeat: -1,
       yoyo: true,
     });
@@ -57,8 +57,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 text-[#fffce1] z-45 backdrop-blur-xl w-full flex justify-between font-poppins transition-all duration-500 px-6 lg:px-20 items-center  ${
-          scrolled ? "h-16" : "h-24"
+        className={`fixed top-0 text-[#fffce1] z-45 backdrop-blur-sm w-full flex justify-between font-poppins transition-all duration-500 px-6 lg:px-20 items-center  ${
+          scrolled ? "h-16" : "h-24 "
         }`}
       >
         <div
