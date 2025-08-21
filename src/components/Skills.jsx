@@ -44,7 +44,6 @@ const Skills = () => {
             className="overflow-hidden relative  rounded-2xl h-[150px] md:h-full w-[150px] md:w-[220px] mx-auto  z-10"
             style={{ boxShadow: "0 0 25px 5px rgba(255, 215, 0, 0.4)" }}
           >
-            
             <div ref={scrollRef} className="space-y-4">
               <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={js} alt="" />
               <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={java} alt="" />
@@ -58,13 +57,25 @@ const Skills = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center  items-center h-full lg:w-[40%] mx-auto mt-10 lg:mt-0">
+        <div className="flex justify-center items-center h-full lg:w-[40%] mx-auto mt-10 lg:mt-0">
           <div className="relative p-1 rounded-lg overflow-hidden">
-          <div className="absolute cursor-pointer inset-0 -left-[200px] -top-[220px] w-[500px] h-[500px] animate-spin bg-[conic-gradient(from_90deg,_#4285F4_0%,_#EA4335_25%,_#FBBC05_50%,_#34A853_75%,_#4285F4_100%)]"></div>       <a href={`${import.meta.env.BASE_URL}/Abhishek_Resume.pdf`} download>
-            <button className="relative cursor-pointer z-10 bg-zinc-900 h-10 w-30 rounded-lg flex items-center justify-center border-2 border-transparent">
-              Resume
-            </button>
-            </a>
+            <div className="absolute cursor-pointer inset-0 -left-[200px] -top-[220px] w-[500px] h-[500px] animate-spin bg-[conic-gradient(from_90deg,_#4285F4_0%,_#EA4335_25%,_#FBBC05_50%,_#34A853_75%,_#4285F4_100%)]"></div>
+
+            <a href={`${import.meta.env.BASE_URL}/Abhishek_Resume.pdf`} download>
+  <button
+    onClick={() => {
+      console.log("Resume Download Clicked");
+      gtag("event", "resume_download", {
+        event_category: "engagement",
+        event_label: "Resume Button",
+        file_name: "Abhishek_Resume.pdf"
+      });
+    }}
+    className="relative cursor-pointer z-10 bg-zinc-900 h-10 w-30 rounded-lg flex items-center justify-center border-2 border-transparent"
+  >
+    Resume
+  </button>
+</a>
           </div>
         </div>
       </div>
