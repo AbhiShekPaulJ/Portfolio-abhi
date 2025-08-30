@@ -8,8 +8,8 @@ import JustAbout from "./JustAbout";
 import Contact from "./Contact";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowUp } from "react-icons/io";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger, ScrollSmoother);
+// import { ScrollSmoother } from "gsap/ScrollSmoother";
+gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger,);
 
 const Home = () => {
   const scrambleRef1 = useRef(null);
@@ -34,35 +34,35 @@ const Home = () => {
     return () => window.removeEventListener("scroll", updateProgress);
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && pageRef.current) {
-      const smoother = ScrollSmoother.create({
-        wrapper: pageRef.current,
-        content: pageRef.current.querySelector(".smooth"),
-        smooth: 1.2, 
-        effects: true,
-      });
+  // useEffect(() => {
+  //   if (typeof window !== "undefined" && pageRef.current) {
+  //     const smoother = ScrollSmoother.create({
+  //       wrapper: pageRef.current,
+  //       content: pageRef.current.querySelector(".smooth"),
+  //       smooth: 1.2, 
+  //       effects: true,
+  //     });
 
-      const links = document.querySelectorAll("a[href^='#']");
-      const handleClick = (e, anchor) => {
-        e.preventDefault();
-        let target = document.querySelector(anchor.getAttribute("href"));
-        if (target) {
-          smoother.scrollTo(target, { duration: 1, offset: 0 });
-        }
-      };
-      links.forEach(anchor => {
-        anchor.addEventListener("click", (e) => handleClick(e, anchor));
-      });
+  //     const links = document.querySelectorAll("a[href^='#']");
+  //     const handleClick = (e, anchor) => {
+  //       e.preventDefault();
+  //       let target = document.querySelector(anchor.getAttribute("href"));
+  //       if (target) {
+  //         smoother.scrollTo(target, { duration: 1, offset: 0 });
+  //       }
+  //     };
+  //     links.forEach(anchor => {
+  //       anchor.addEventListener("click", (e) => handleClick(e, anchor));
+  //     });
 
-      return () => {
-        smoother.kill();
-        links.forEach(anchor => {
-          anchor.replaceWith(anchor.cloneNode(true)); // remove listeners
-        });
-      };
-    }
-  }, []);
+  //     return () => {
+  //       smoother.kill();
+  //       links.forEach(anchor => {
+  //         anchor.replaceWith(anchor.cloneNode(true)); // remove listeners
+  //       });
+  //     };
+  //   }
+  // }, []);
 
   useEffect(() => {
     const el = letterRef.current;
