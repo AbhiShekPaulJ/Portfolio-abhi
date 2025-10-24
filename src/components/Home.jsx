@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
-import KoreChatWidget from "./KoreChatWidget.JSX";
+import KoreChatWidget from "./KoreChatWidgett.jsx";
 import Navbar from "./Navbar";
 import Skills from "./Skills";
 import Projects from "./Projects";
@@ -163,7 +163,6 @@ const Home = () => {
                   <div className="border-1 w-fit">
                     <KoreChatWidget/>
                   </div>
-
         </div>
         <div className="mb-16  ">
           <Skills />
