@@ -32,7 +32,7 @@ const Projects = () => {
               />
             </div>
             <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-2">
-              <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
+              <h4 className="text-left lg:text-4xl md:text-3xl text-2xl  font-bold font-stretch-extra-condensed">
                 Short URL
               </h4>
               <p className="font-light font-stretch-condensed lg:text-[18px] md:text-[16px] leading-6 mt-2">
@@ -70,7 +70,7 @@ const Projects = () => {
               />
             </div>
             <div className="w-1/2 flex border-r-1 pr-6 lg:pl-20 flex-col justify-center ">
-              <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
+              <h4 className="text-left lg:text-4xl md:text-3xl text-2xl font-bold font-stretch-extra-condensed">
                 Pooja Booking
               </h4>
               <p className="font-light font-stretch-condensed lg:text-[18px] md:text-[16px] leading-6 mt-2">
@@ -110,7 +110,7 @@ const Projects = () => {
             />
           </div>
           <div className="w-1/2 flex flex-col justify-center lg:pl-30 pl-5  pr-5 pt-5">
-            <h4 className="text-left lg:text-4xl md:text-3xl font-stretch-extra-condensed">
+            <h4 className="text-left lg:text-4xl md:text-3xl text-2xl font-bold font-stretch-extra-condensed">
               E-Commers Website
             </h4>
             <p className="font-light font-stretch-condensed lg:text-[18px] md:text-[16px] leading-6 mt-2">

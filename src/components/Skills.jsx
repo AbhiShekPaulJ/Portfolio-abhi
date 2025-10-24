@@ -13,28 +13,28 @@ import gsapimg from "/gsap.png";
 const Skills = () => {
   const scrollRef = useRef(null);
 
-  useEffect(() => {
-    const container = scrollRef.current;
+  // useEffect(() => {
+  //   const container = scrollRef.current;
 
-    const tween = gsap.to(container, {
-      y: "-100%",
-      ease: "linear",
-      duration: 15,
-      repeat: -1,
-    });
+  //   const tween = gsap.to(container, {
+  //     y: "-100%",
+  //     ease: "linear",
+  //     duration: 15,
+  //     repeat: -1,
+  //   });
 
-    const pause = () => tween.pause();
-    const play = () => tween.resume();
+  //   const pause = () => tween.pause();
+  //   const play = () => tween.resume();
 
-    container.addEventListener("mouseenter", pause);
-    container.addEventListener("mouseleave", play);
+  //   container.addEventListener("mouseenter", pause);
+  //   container.addEventListener("mouseleave", play);
 
-    return () => {
-      container.removeEventListener("mouseenter", pause);
-      container.removeEventListener("mouseleave", play);
-      tween.kill();
-    };
-  }, []);
+  //   return () => {
+  //     container.removeEventListener("mouseenter", pause);
+  //     container.removeEventListener("mouseleave", play);
+  //     tween.kill();
+  //   };
+  // }, []);
 
   return (
     <>
