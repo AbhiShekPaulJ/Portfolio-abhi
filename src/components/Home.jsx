@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import KoreChatWidget from "./KoreChatWidget.JSX";
 import Navbar from "./Navbar";
 import Skills from "./Skills";
 import Projects from "./Projects";
@@ -122,6 +123,7 @@ const Home = () => {
       <main className="overflow-x-hidden relative selection:bg-[#fffce1] selection:text-zinc-950">
       <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
         <Navbar pageRef={pageRef} />
+        <KoreChatWidget/>
         <div className="smooth">
         <div className=" flex relative justify-center w-[80%] md:pt-40 pt-30 mx-auto items-center">
           <div className="flex hero justify-between items-center flex-col lg:flex-row gap-5">
