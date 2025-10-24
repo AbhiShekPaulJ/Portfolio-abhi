@@ -123,7 +123,6 @@ const Home = () => {
       <main className="overflow-x-hidden relative selection:bg-[#fffce1] selection:text-zinc-950">
       <div ref={pageRef} className="bg-zinc-950 min-h-[calc(100vh-40px)] text-[#fffce1] relative">
         <Navbar pageRef={pageRef} />
-        <KoreChatWidget/>
         <div className="smooth">
         <div className=" flex relative justify-center w-[80%] md:pt-40 pt-30 mx-auto items-center">
           <div className="flex hero justify-between items-center flex-col lg:flex-row gap-5">
@@ -158,6 +157,13 @@ const Home = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="border-1 border-white min-h-20 w-full ">
+                  <p>TEST-0.1</p>
+                  <div className="border-1 w-fit">
+                    <KoreChatWidget/>
+                  </div>
+
         </div>
         <div className="mb-16  ">
           <Skills />
