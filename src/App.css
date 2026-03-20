@@ -7,3 +7,8 @@
     border-top-left-radius: 100% 50%;
     border-top-right-radius: 100% 50%;
   }
+
+.kore-chat-window {
+  z-index: 999999 !important;
+  position: fixed !important;
+}
