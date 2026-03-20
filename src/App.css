@@ -8,7 +8,7 @@
     border-top-right-radius: 100% 50%;
   }
 
-.kore-chat-window {
+.kore-chat-window, .kore-chat-window-main-section{
   z-index: 999999 !important;
   position: fixed !important;
 }
