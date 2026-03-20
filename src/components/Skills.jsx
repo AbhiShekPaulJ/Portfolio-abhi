@@ -10,8 +10,6 @@ import html from "/html.png";
 import css from "/css.png";
 import gsapimg from "/gsap.png";
 
-const images = [js, java, react, node, mongo, sql, html, css, gsapimg];
-
 const Skills = () => {
   const scrollRef = useRef(null);
 
@@ -43,20 +41,19 @@ const Skills = () => {
       <div className="flex h-50 mt-15 w-[70%] mx-auto flex-col md:flex-row justify-center items-center ">
         <div className="lg:w-[60%] h-full ">
           <div
-            className="overflow-hidden relative rounded-2xl h-[150px] md:h-full w-[150px] md:w-[220px] mx-auto z-10"
+            className="overflow-hidden relative  rounded-2xl h-[150px] md:h-full w-[150px] md:w-[220px] mx-auto  z-10"
             style={{ boxShadow: "0 0 25px 5px rgba(255, 215, 0, 0.4)" }}
           >
-            <div ref={scrollRef} className="space-y-4 will-change-transform">
-              <div className="image-set">
-                {images.map((img, idx) => (
-                  <img key={"img1-"+idx} className="h-[100px] w-[100px] mx-auto rounded-2xl" src={img} alt="" />
-                ))}
-              </div>
-              <div className="image-set">
-                {images.map((img, idx) => (
-                  <img key={"img2-"+idx} className="h-[100px] w-[100px] mx-auto rounded-2xl" src={img} alt="" />
-                ))}
-              </div>
+            <div ref={scrollRef} className="space-y-4">
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={js} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={java} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={react} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={node} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={mongo} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={sql} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={html} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={css} alt="" />
+              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={gsapimg} alt="" />
             </div>
           </div>
         </div>
@@ -66,35 +63,24 @@ const Skills = () => {
 
             <a href={`${import.meta.env.BASE_URL}/Abhishek_Resume.pdf`} download>
               <button
-                useEffect(() => {
-                  const container = scrollRef.current;
-                  if (!container) return;
-
-                  // Get the height of one set of images
-                  const imageSet = container.querySelector('.image-set');
-                  if (!imageSet) return;
-                  const setHeight = imageSet.offsetHeight;
-
-                  // Animate the container to scroll up by one set's height
-                  const tween = gsap.to(container, {
-                    y: -setHeight,
-                    ease: "linear",
-                    duration: 10,
-                    repeat: -1,
-                    modifiers: {
-                      y: gsap.utils.unitize(y => parseFloat(y) % -setHeight)
-                    }
+                onClick={() => {
+                  console.log("Resume Download Clicked");
+                  gtag("event", "resume_download", {
+                    event_category: "engagement",
+                    event_label: "Resume Button",
+                    file_name: "Abhishek_Resume.pdf",
                   });
+                }}
+                className="relative cursor-pointer z-10 bg-zinc-900 h-10 w-30 rounded-lg flex items-center justify-center border-2 border-transparent"
+              >
+                Resume
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-                  // Pause on hover
-                  const pause = () => tween.pause();
-                  const play = () => tween.resume();
-                  container.addEventListener("mouseenter", pause);
-                  container.addEventListener("mouseleave", play);
-
-                  return () => {
-                    container.removeEventListener("mouseenter", pause);
-                    container.removeEventListener("mouseleave", play);
-                    tween.kill();
-                  };
-                }, []);
+export default Skills;
