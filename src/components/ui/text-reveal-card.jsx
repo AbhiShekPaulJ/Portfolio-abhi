@@ -88,7 +88,7 @@ export const TextRevealCard = ({
             {revealText}
           <MemoizedStarsb />
           </div>
-          <MemoizedStarsb />
+          {/* <MemoizedStarsb /> */}
         </motion.div>
         <motion.div
           animate={{

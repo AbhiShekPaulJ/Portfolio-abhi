@@ -79,7 +79,7 @@ const Contact = () => {
           <div className="mb-4">
             <FiPhone className="lg:text-3xl text-sm mb-2"></FiPhone>
             <p className="font-semibold lg:text-2xl text-sm">CONTACT NUMBER:</p>
-            <p className="text-gray-600">+91 8008806079</p>
+            <p className="text-gray-600">+91 8008806###</p>
           </div>
           <div className="mb-4">
             <MdOutlineMarkEmailRead className="lg:text-3xl text-sm mb-2"></MdOutlineMarkEmailRead>

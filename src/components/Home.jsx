@@ -158,12 +158,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="border-1 border-white min-h-20 w-full ">
-                  <p>TEST-0.1</p>
-                  <div className="border-1 w-fit">
-                    <KoreChatWidget/>
-                  </div>
-        </div>
         <div className="mb-16  ">
           <Skills />
         </div>
