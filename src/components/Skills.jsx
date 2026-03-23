@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+
 import java from "/java.png";
 import js from "/js.png";
 import react from "/react.png";
@@ -10,17 +11,35 @@ import html from "/html.png";
 import css from "/css.png";
 import gsapimg from "/gsap.png";
 
+const skills = [
+  { src: js, alt: "JavaScript" },
+  { src: java, alt: "Java" },
+  { src: react, alt: "React" },
+  { src: node, alt: "Node.js" },
+  { src: mongo, alt: "MongoDB" },
+  { src: sql, alt: "SQL" },
+  { src: html, alt: "HTML" },
+  { src: css, alt: "CSS" },
+  { src: gsapimg, alt: "GSAP" },
+];
+
 const Skills = () => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
     const container = scrollRef.current;
+    const skillCount = skills.length;
+    const imgHeight = 100 + 16; // 100px image + 16px (space-y-4 = 1rem = 16px)
+    const scrollHeight = imgHeight * skillCount;
 
     const tween = gsap.to(container, {
-      y: "-100%",
+      y: -scrollHeight,
       ease: "linear",
-      duration: 15,
+      duration: 12,
       repeat: -1,
+      modifiers: {
+        y: gsap.utils.unitize(y => parseFloat(y) % -scrollHeight),
+      },
     });
 
     const pause = () => tween.pause();
@@ -42,18 +61,17 @@ const Skills = () => {
         <div className="lg:w-[60%] h-full ">
           <div
             className="overflow-hidden relative  rounded-2xl h-[150px] md:h-full w-[150px] md:w-[220px] mx-auto  z-10"
-            style={{ boxShadow: "0 0 25px 5px rgba(255, 215, 0, 0.4)" }}
+            style={{ boxShadow: "0 0 25px 5px rgba(255, 252, 225)" }}
           >
             <div ref={scrollRef} className="space-y-4">
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={js} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={java} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={react} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={node} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={mongo} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={sql} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={html} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={css} alt="" />
-              <img className="h-[100px] w-[100px] mx-auto rounded-2xl " src={gsapimg} alt="" />
+              {[...skills, ...skills].map((skill, idx) => (
+                <img
+                  key={idx}
+                  className="h-[100px] w-[100px] mx-auto rounded-2xl "
+                  src={skill.src}
+                  alt={skill.alt}
+                />
+              ))}
             </div>
           </div>
         </div>
